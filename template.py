@@ -16,7 +16,7 @@ list_of_files=[
     f'src/{pakage_name}/utlis/__init__.py',
     'notebooks/research.ipynb',
     'notebooks/data/.gitkeep',
-    'reqirements.txt',
+    'requirements.txt',
     'setup.py',
     'init_setup.sh'
 ]
