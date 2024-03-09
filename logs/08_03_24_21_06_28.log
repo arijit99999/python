@@ -1,0 +1,6 @@
+18--INFO--2024-03-08 21:06:29,861--data ingestion has been started
+21--INFO--2024-03-08 21:06:30,049--data is loaded
+24--INFO--2024-03-08 21:06:31,044--row data saved in artifact folder
+25--INFO--2024-03-08 21:06:31,044--now perform tarin test split
+27--INFO--2024-03-08 21:06:31,092--tarin test split has been done
+36--INFO--2024-03-08 21:06:31,092--exceptin is triggerd
