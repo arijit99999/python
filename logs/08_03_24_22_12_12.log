@@ -1,6 +1,0 @@
-22--INFO--2024-03-08 22:12:13,054--data ingestion started
-26--INFO--2024-03-08 22:12:13,217-- i have read dataset as a df
-31--INFO--2024-03-08 22:12:14,256-- i have saved the raw dataset in artifact folder
-33--INFO--2024-03-08 22:12:14,256--here i have performed train test split
-36--INFO--2024-03-08 22:12:14,295--train test split completed
-52--INFO--2024-03-08 22:12:14,295--exception during occured at data ingestion stage

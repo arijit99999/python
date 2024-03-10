@@ -1,7 +1,0 @@
-23--INFO--2024-03-09 08:29:42,171--data ingestion started
-27--INFO--2024-03-09 08:29:42,273-- i have read dataset as dataframe
-32--INFO--2024-03-09 08:29:42,835-- i have saved the raw dataset in artifact folder
-34--INFO--2024-03-09 08:29:42,835--here i have performed train test split
-36--INFO--2024-03-09 08:29:42,862--train test split completed
-41--INFO--2024-03-09 08:29:43,433--collected train and test data
-42--INFO--2024-03-09 08:29:43,433--data ingestion part completed
