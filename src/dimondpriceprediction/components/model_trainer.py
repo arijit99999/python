@@ -7,12 +7,11 @@ from src.dimondpriceprediction.logger import logging
 from src.dimondpriceprediction.exception import customexception
 from dataclasses import dataclass
 from src.dimondpriceprediction.utlis.utils import save_object
-from src.dimondpriceprediction.utlis.utils import evaluate_model
+from sklearn.metrics import r2_score
 
 from sklearn.linear_model import LinearRegression, Ridge,Lasso,ElasticNet
 
-
-@dataclass 
+ 
 class ModelTrainerConfig:
     trained_model_file_path = os.path.join('artifacts','model.pkl')
     
@@ -23,45 +22,20 @@ class ModelTrainer:
     
     def initate_model_training(self,train_array,test_array):
         try:
-            logging.info('Splitting Dependent and Independent variables from train and test data')
-            X_train, y_train, X_test, y_test = (
-                train_array[:,:-1],
-                train_array[:,-1],
-                test_array[:,:-1],
-                test_array[:,-1]
-            )
-
-            models={
-            'LinearRegression':LinearRegression(),
-            'Lasso':Lasso(),
-            'Ridge':Ridge(),
-            'Elasticnet':ElasticNet()
-        }
-            
-            model_report:dict=evaluate_model(X_train,y_train,X_test,y_test,models)
-            print(model_report)
-            print('\n====================================================================================\n')
-            logging.info(f'Model Report : {model_report}')
-
-            # To get best model score from dictionary 
-            best_model_score = max(sorted(model_report.values()))
-
-            best_model_name = list(model_report.keys())[
-                list(model_report.values()).index(best_model_score)
-            ]
-            
-            best_model = models[best_model_name]
-
-            print(f'Best Model Found , Model Name : {best_model_name} , R2 Score : {best_model_score}')
-            print('\n====================================================================================\n')
-            logging.info(f'Best Model Found , Model Name : {best_model_name} , R2 Score : {best_model_score}')
-
-            save_object(
-                 file_path=self.model_trainer_config.trained_model_file_path,
-                 obj=best_model
-            )
-          
-
+            x_train=train_array[:,:-1]
+            y_train=train_array[:,-1:]
+            x_test=test_array[:,:-1]
+            y_test=test_array[:,-1:]
+            logging.info('read x_train,x_test,y_train,y_test')
+            model=LinearRegression()
+            model.fit(x_train,y_train)
+            y_pred=model.predict(x_test)
+            score=r2_score(y_test,y_pred)
+            logging.info(f'model score is {score*100} %')
+            print(round(r2_score(y_test,y_pred)*100,2),'%')
+            save_object(obj=model,file_path=self.model_trainer_config.trained_model_file_path)
+            logging.info('model traing has been complited and we have saved the model')
+            return self.model_trainer_config.trained_model_file_path
         except Exception as e:
             logging.info('Exception occured at Model Training')
             raise customexception(e,sys)

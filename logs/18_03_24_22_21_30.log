@@ -1,0 +1,13 @@
+24--INFO--2024-03-18 22:21:30,493--data ingestion started
+30--INFO--2024-03-18 22:21:31,194--row data saved 
+32--INFO--2024-03-18 22:21:31,240--split train and test data
+35--INFO--2024-03-18 22:21:31,642--saved train data
+37--INFO--2024-03-18 22:21:31,824--saved test data
+43--INFO--2024-03-18 22:21:31,826--trasnformation initiated
+46--INFO--2024-03-18 22:21:31,957--read test and train data
+55--INFO--2024-03-18 22:21:32,143--transformation has been complited
+60--INFO--2024-03-18 22:21:32,175--save preprocessor object
+61--INFO--2024-03-18 22:21:32,175--data tranformation has been complited
+29--INFO--2024-03-18 22:21:32,189--read x_train,x_test,y_train,y_test
+34--INFO--2024-03-18 22:21:32,224--model score is 93.67171335520268 %
+37--INFO--2024-03-18 22:21:32,224--model traing has been complited and we have saved the model
